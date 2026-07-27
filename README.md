@@ -1,6 +1,6 @@
 # BO3 Linux
 
-> Play **Call of Duty: Black Ops III** on **Fedora Linux** using Wine and BOIII.
+Run **Call of Duty®: Black Ops III** with the **EZZ BOIII Client** on **Fedora Linux** using Wine and DXVK.
 
 ![Fedora](https://img.shields.io/badge/Fedora-42-294172?logo=fedora)
 ![Wine](https://img.shields.io/badge/Wine-10.x-red)
@@ -26,7 +26,7 @@
 - Fedora-focused
 - Native Vulkan via DXVK
 - PulseAudio / PipeWire support
-- BOIII compatible
+- Uses [BOIII](https://github.com/Ezz-lol/boiii-free)
 - Simple launch script
 
 ---
@@ -182,9 +182,23 @@ You must legally own **Call of Duty: Black Ops III**.
 
 ---
 
-# ❤️ Credits
+## ❤️ Credits
 
-- Wine
-- Winetricks
-- DXVK
-- BOIII
+This guide would not have been possible without the work of the following projects and developers:
+
+- **Ezz-lol** — Maintainer of the EZZ BOIII client (`boiii-free`)
+  - https://github.com/Ezz-lol/boiii-free
+
+- **Wine Project**
+  - https://www.winehq.org/
+
+- **Winetricks**
+  - https://github.com/Winetricks/winetricks
+
+- **DXVK**
+  - https://github.com/doitsujin/dxvk
+
+- **Fedora Project**
+  - https://fedoraproject.org/
+
+Special thanks to everyone contributing to the BOIII and Linux gaming communities.
