@@ -121,22 +121,16 @@ wine SteamSetup.exe
 Create `launch-bo3.sh`
 
 ```bash
-#!/usr/bin/env bash
+#!/bin/bash
 
-export WINEPREFIX="$HOME/.wine-bo3"
+export WINEPREFIX=~/.wine-bo3
 export PULSE_LATENCY_MSEC=60
+export WINEDLLOVERRIDES="winepulse.drv=b;winealsa.drv=n;dsound=n,b;xinput1_0=b;xinput1_2=b;xinput_9_1_0=b;XINPUT_9_1_0=b;xinput1_3=b;xinput=b"
 
-export WINEDLLOVERRIDES="winepulse.drv=b;winealsa.drv=d;dsound=n,b"
+cd "/path/to/Black Ops III" || { echo "Dossier du jeu introuvable !"; exit 1; }
 
-cd "/path/to/Black Ops III"
+wine boiii.exe -unsafe-lua -nointro -noupdate -nosteam -noratelimit -mitigatepacketspam
 
-wine boiii.exe \
-    -unsafe-lua \
-    -nointro \
-    -noupdate \
-    -nosteam \
-    -noratelimit \
-    -mitigatepacketspam
 ```
 
 Make it executable:
