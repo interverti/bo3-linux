@@ -35,6 +35,7 @@ Simple guide to install and play **BO3** on Fedora Linux using **Wine**, **DXVK*
 - 🔊 PipeWire / PulseAudio support
 - 🚀 Lightweight launcher script
 - 🧩 Supports Zombies, Multiplayer, Mods and Custom Maps
+- 🧩 Compatible with Steam Workshop content via BOIIIWD
 - 🛠️ Easy to reproduce on a fresh Wine prefix
 
 ---
@@ -237,6 +238,22 @@ Yes.
 PipeWire provides PulseAudio compatibility on Fedora.
 
 </details>
+
+---
+
+## 🧩 Using the Workshop with BOIIIWD
+
+If you want to download and manage **Steam Workshop** content (Custom Maps, Mods, etc.), you can use **BOIIIWD**.
+
+BOIIIWD provides an easy way to browse and install Workshop content while remaining compatible with the **EZZ BOIII Client**.
+
+### Download
+
+- **Releases:** https://github.com/faroukbmiled/BOIIIWD/releases
+- **Source Code:** https://github.com/faroukbmiled/BOIIIWD
+
+> [!TIP]
+> BOIIIWD is optional. You only need it if you plan to use Steam Workshop content.
 
 ## ❤️ Credits
 
