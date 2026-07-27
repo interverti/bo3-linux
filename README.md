@@ -5,7 +5,7 @@ Run **Call of Duty®: Black Ops III** with the **EZZ BOIII Client** on **Fedora 
 ![Fedora](https://img.shields.io/badge/Fedora-42-294172?logo=fedora)
 ![Wine](https://img.shields.io/badge/Wine-10.x-red)
 ![DXVK](https://img.shields.io/badge/DXVK-enabled-orange)
-![License](https://img.shields.io/github/license/interverti/bo3-linux)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ---
 
@@ -99,7 +99,7 @@ winetricks -q sound=pulse
 
 ---
 
-# 🎮 Install Steam (Optional)
+# 🎮 Install Steam
 
 Download Steam:
 
@@ -110,9 +110,9 @@ wget https://cdn.akamai.steamstatic.com/client/installer/SteamSetup.exe
 
 wine SteamSetup.exe
 ```
-
 > [!NOTE]
-> Steam on Wine is only required for Ezz! Only install it and dont touch it . BOIII itself can be launched without Steam.
+> Steam is only required for the initial setup of the EZZ BOIII client.
+> Once installed, leave the Steam installation untouched.
 
 ---
 
@@ -182,23 +182,68 @@ You must legally own **Call of Duty: Black Ops III**.
 
 ---
 
+## ✅ Compatibility
+
+| Component | Status |
+|-----------|:------:|
+| Fedora 41 | ✅ |
+| Fedora 42 | ✅ |
+| AMD GPU | ✅ |
+| Intel GPU | ✅ |
+| NVIDIA Proprietary Driver | ✅ |
+| PipeWire | ✅ |
+| X11 | ✅ |
+| Wayland | ✅ |
+
+## ❓ FAQ
+<details>
+<summary>How can i play with my friend who plays on Windows and Linux?</summary>
+
+Things like Radmin VPN cant be used with this method so i recommend to use something like [playit](https://playit.gg/) for the person who host with a **UDP** tunnel on port **27017** or **27018**
+
+</details>
+
+<details>
+<summary>Does this work with Steam Proton?</summary>
+
+No.
+
+This guide is specifically designed for **Wine** and the **EZZ BOIII Client**.
+
+</details>
+
+<details>
+<summary>Can I play Zombies?</summary>
+
+Yes.
+
+BOIII supports Zombies, Multiplayer and Mods.
+
+</details>
+
+<details>
+<summary>Can I use PipeWire?</summary>
+
+Yes.
+
+PipeWire provides PulseAudio compatibility on Fedora.
+
+</details>
+
 ## ❤️ Credits
 
-This guide would not have been possible without the work of the following projects and developers:
+| Project | Description |
+|---------|-------------|
+| [EZZ BOIII](https://github.com/Ezz-lol/boiii-free) | Community BOIII client |
+| [Wine](https://www.winehq.org/) | Windows compatibility layer |
+| [Winetricks](https://github.com/Winetricks/winetricks) | Wine helper scripts |
+| [DXVK](https://github.com/doitsujin/dxvk) | Direct3D → Vulkan translation |
+| [Fedora Project](https://fedoraproject.org/) | Linux distribution |
 
-- **Ezz-lol** — Maintainer of the EZZ BOIII client (`boiii-free`)
-  - https://github.com/Ezz-lol/boiii-free
+---
 
-- **Wine Project**
-  - https://www.winehq.org/
+<p align="center">
 
-- **Winetricks**
-  - https://github.com/Winetricks/winetricks
+Made with ❤️ for the Linux Gaming community.
 
-- **DXVK**
-  - https://github.com/doitsujin/dxvk
-
-- **Fedora Project**
-  - https://fedoraproject.org/
-
-Special thanks to everyone contributing to the BOIII and Linux gaming communities.
+</p>
