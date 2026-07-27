@@ -1,69 +1,196 @@
-# bo3-linux
-A full guide on how to install and play BO3 on Fedora Linux with Wine.
+# BO3 Linux
 
-**What you will need to install** :
+> Play **Call of Duty: Black Ops III** on **Fedora Linux** using Wine and BOIII.
 
-Install wine and winetricks
-```sudo dnf install wine winetricks```
+![Fedora](https://img.shields.io/badge/Fedora-42-294172?logo=fedora)
+![Wine](https://img.shields.io/badge/Wine-10.x-red)
+![DXVK](https://img.shields.io/badge/DXVK-enabled-orange)
+![License](https://img.shields.io/github/license/interverti/bo3-linux)
 
-32-bits libs and tools that will be useful
+---
+
+## 📖 Table of Contents
+
+- [Requirements](#-requirements)
+- [Install Wine](#-install-wine)
+- [Create Wine Prefix](#-create-the-wine-prefix)
+- [Configure Wine](#-configure-wine)
+- [Install Steam](#-install-steam-optional)
+- [Launch BOIII](#-launch-boiii)
+- [Troubleshooting](#-troubleshooting)
+
+---
+
+## ✨ Features
+
+- Fedora-focused
+- Native Vulkan via DXVK
+- PulseAudio / PipeWire support
+- BOIII compatible
+- Simple launch script
+
+---
+
+> [!IMPORTANT]
+> This guide assumes you already own **Call of Duty: Black Ops III**.
+
+## 📦 Requirements
+
+- Fedora 41+
+- Wine
+- Winetricks
+- Vulkan drivers
+- BO3 Windows installation
+
+---
+
+# 🍷 Install Wine
+
+```bash
+sudo dnf install wine winetricks
 ```
-sudo dnf install wine.i686 mesa-vulkan-drivers mesa-vulkan-drivers.i686 \
-                 vulkan-loader vulkan-loader.i686 \
-                 libX11.i686 libXext.i686 libXrandr.i686 \
-                 alsa-lib.i686 pulseaudio-libs.i686
+
+Install the required libraries:
+
+```bash
+sudo dnf install \
+    wine.i686 \
+    mesa-vulkan-drivers \
+    mesa-vulkan-drivers.i686 \
+    vulkan-loader \
+    vulkan-loader.i686 \
+    libX11.i686 \
+    libXext.i686 \
+    libXrandr.i686 \
+    alsa-lib.i686 \
+    pulseaudio-libs.i686
 ```
 
-Make a prefix for Wine
+---
 
-```
-export WINEPREFIX=~/.wine-bo3
+# 📁 Create the Wine Prefix
+
+```bash
+export WINEPREFIX="$HOME/.wine-bo3"
 export WINEARCH=win64
+
 wineboot -u
 ```
 
-Install DXVK and audio and video settings
+---
 
+# ⚙️ Configure Wine
+
+Install DXVK:
+
+```bash
+export WINEPREFIX="$HOME/.wine-bo3"
+
+winetricks -q dxvk
 ```
-export WINEPREFIX=~/.wine-bo3
-winetricks -q sound=pulse shader_backend=glsl renderer=vulkan dxvk
+
+Enable PulseAudio:
+
+```bash
+export WINEPREFIX="$HOME/.wine-bo3"
+
+winetricks -q sound=pulse
 ```
 
-Install Steam on Wine
+---
 
-```
-export WINEPREFIX=~/.wine-bo3
+# 🎮 Install Steam (Optional)
 
+Download Steam:
+
+```bash
 cd /tmp
+
 wget https://cdn.akamai.steamstatic.com/client/installer/SteamSetup.exe
 
 wine SteamSetup.exe
 ```
 
-Force Wine to use Pulse for audio in game
+> [!NOTE]
+> Steam on Wine is only required for Ezz! Only install it and dont touch it . BOIII itself can be launched without Steam.
 
-```
-export WINEPREFIX=~/.wine-bo3
+---
 
-winetricks -q sound=pulse
+# 🚀 Launch BOIII
 
-wine reg add "HKCU\\Software\\Wine\\Drivers" /v Audio /t REG_SZ /d "pulse" /f
-```
+Create `launch-bo3.sh`
 
-Go to where you have the game stored and make this sh with right permissions and then run it and you will be able to play https://github.com/Ezz-lol/boiii-free/ on Linux with a BO3 Windows Version
+```bash
+#!/usr/bin/env bash
 
-```
-#!/bin/bash
-
-export WINEPREFIX=~/.wine-bo3
+export WINEPREFIX="$HOME/.wine-bo3"
 export PULSE_LATENCY_MSEC=60
-export WINEDLLOVERRIDES="winepulse.drv=b;winealsa.drv=n;dsound=n,b;xinput1_0=b;xinput1_2=b;xinput_9_1_0=b;XINPUT_9_1_0=b;xinput1_3=b;xinput=b"
 
-cd "/disk/whereyourgameis/" || { echo "The game folder doesnt exist !"; exit 1; }
+export WINEDLLOVERRIDES="winepulse.drv=b;winealsa.drv=d;dsound=n,b"
 
-wine boiii.exe -unsafe-lua -nointro -noupdate -nosteam -noratelimit -mitigatepacketspam
+cd "/path/to/Black Ops III"
 
+wine boiii.exe \
+    -unsafe-lua \
+    -nointro \
+    -noupdate \
+    -nosteam \
+    -noratelimit \
+    -mitigatepacketspam
 ```
 
-Remplace the location in the cd section, its a placeholder on this guide
+Make it executable:
 
+```bash
+chmod +x launch-bo3.sh
+```
+
+Run it:
+
+```bash
+./launch-bo3.sh
+```
+
+---
+
+# 🔧 Troubleshooting
+
+### Black screen
+
+- Verify Vulkan is installed.
+- Reinstall DXVK.
+
+### No audio
+
+Run:
+
+```bash
+winetricks sound=pulse
+```
+
+### Game crashes
+
+Delete the Wine prefix:
+
+```bash
+rm -rf ~/.wine-bo3
+```
+
+and recreate it.
+
+---
+
+# ⚠️ Disclaimer
+
+This repository **does not** distribute any game files.
+
+You must legally own **Call of Duty: Black Ops III**.
+
+---
+
+# ❤️ Credits
+
+- Wine
+- Winetricks
+- DXVK
+- BOIII
