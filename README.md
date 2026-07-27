@@ -22,7 +22,7 @@ Simple guide to install and play **BO3** on Fedora Linux using **Wine**, **DXVK*
   <img src="images/gamepreview2.png" alt="BO3 Gameplay running on Fedora Linux" width="48%">
 </p>
 
-> [!TIP]
+> [!NOTE]
 > These screenshots were captured on **Fedora Linux** using **Wine + DXVK** with the **EZZ BOIII Client**.
 
 ---
