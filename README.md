@@ -135,7 +135,7 @@ export WINEPREFIX=~/.wine-bo3
 export PULSE_LATENCY_MSEC=60
 export WINEDLLOVERRIDES="winepulse.drv=b;winealsa.drv=n;dsound=n,b;xinput1_0=b;xinput1_2=b;xinput_9_1_0=b;XINPUT_9_1_0=b;xinput1_3=b;xinput=b"
 
-cd "/path/to/Black Ops III" || { echo "Dossier du jeu introuvable !"; exit 1; }
+cd "/path/to/Black Ops III" || { echo "Game folder was not found !"; exit 1; }
 
 wine boiii.exe -unsafe-lua -nointro -noupdate -nosteam -noratelimit -mitigatepacketspam
 
