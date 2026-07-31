@@ -123,6 +123,18 @@ wine SteamSetup.exe
 > Steam is only required for the initial setup of the EZZ BOIII client.
 > Once installed, leave the Steam installation untouched.
 
+# Install BOII Files
+
+```
+mkdir -p ~/.wine-bo3/drive_c/users/$USER/AppData/Local/boiii
+
+cd ~/.wine-bo3/drive_c/users/$USER/AppData/Local/boiii
+
+wget https://github.com/Ezz-lol/boiii-free/archive/refs/tags/v1.3.2.zip
+
+unzip boiii-free-1.3.2.zip
+```
+
 ---
 
 # 🚀 Launch BOIII
